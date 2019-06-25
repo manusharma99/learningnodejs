@@ -114,12 +114,22 @@
 // console.log('yo imma listening');
 
 /*######readable stream#####*/
-// var http = require('http');
-// var fs = require('fs');
-
+//var fs = require('fs');
+//var http = require('http');
 // var mystreamread = fs.createReadStream(__dirname + '/readme.txt','utf8');
 
 // mystreamread.on('data',function(chunk){
 // console.log('new chunk recieved: ');
 // console.log(chunk);
+// });
+
+/*#######writable stream ######*/
+
+// var fs = require('fs');
+// var http = require('http');
+//  var mystreamread = fs.createReadStream(__dirname + '/readme.txt','utf8');
+// var mywritestream = fs.createWriteStream(__dirname + '/write.txt');
+//  mystreamread.on('data',function(chunk){
+//  console.log('new chunk recieved: ');
+//  mywritestream.write(chunk);
 // });
