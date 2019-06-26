@@ -150,17 +150,38 @@
 
 /*######serving html#######*/
 
+// var fs = require('fs');
+// var http = require('http');
+
+//  var server = http.createServer(function(req,res){
+   
+//      res.writeHead(200,{'content-Type':'text/html'});
+//      var mystreamread = fs.createReadStream(__dirname + '/index.html','utf8');
+//      mystreamread.pipe(res);
+//   });
+//   server.listen(3000,'127.0.0.1');
+//  console.log('yo imma listening');
+
+/*#######basic routing######*/
 var fs = require('fs');
 var http = require('http');
 
  var server = http.createServer(function(req,res){
-   
-     res.writeHead(200,{'content-Type':'text/html'})
-     var mystreamread = fs.createReadStream(__dirname + '/index.html','utf8');
-     mystreamread.pipe(res);
-  });
-  server.listen(3000,'127.0.0.1');
- console.log('yo imma listening');
+     console.log('request was made : ' +req.url);
+     if ( req.url === '/home' || req.url === '/' )
+     {
+        res.writeHead(200,{'content-Type':'text/html'});
+        fs.createReadStream(__dirname + '/index.html').pipe(res);
+     }
+     else{
+         res.writeHead(404,{'content-type':'text/plain'});
+         var obj = '404 page not found';
+         res.end(obj);
+     }
+ });
+
+ server.listen(3000,'127.0.0.1');
+  console.log('yo imma listening');
 
   
  
