@@ -133,3 +133,36 @@
 //  console.log('new chunk recieved: ');
 //  mywritestream.write(chunk);
 // });
+
+/*########piping######*/
+
+// var fs = require('fs');
+//  var http = require('http');
+
+//   var server = http.createServer(function(req,res){
+   
+//      res.writeHead(200,{'content-Type':'text/plain'})
+//      var mystreamread = fs.createReadStream(__dirname + '/readme.txt','utf8');
+//      mystreamread.pipe(res);
+//  });
+//  server.listen(3000,'127.0.0.1');
+//  console.log('yo imma listening');
+
+/*######serving html#######*/
+
+var fs = require('fs');
+var http = require('http');
+
+ var server = http.createServer(function(req,res){
+   
+     res.writeHead(200,{'content-Type':'text/html'})
+     var mystreamread = fs.createReadStream(__dirname + '/index.html','utf8');
+     mystreamread.pipe(res);
+  });
+  server.listen(3000,'127.0.0.1');
+ console.log('yo imma listening');
+
+  
+ 
+
+
