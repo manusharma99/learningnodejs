@@ -199,19 +199,28 @@
   
  /*####### templating engine#######*/
 
-var express = require('express');
-var app = express();
-app.set('view engine','ejs');
-app.get('/', function(req,res){
-    res.sendfile(__dirname + '/index.html');
-});
+// var express = require('express');
+// var app = express();
+// app.set('view engine','ejs');
+// app.get('/', function(req,res){
+//     res.sendfile(__dirname + '/index.html');
+// });
 
-app.get('/profile/:name', function(req,res){
-    var data= ({age:29 ,surname:'sharma'});
-    res.render('profile', {person: req.params.name , data : data });
-});
-app.listen(3000);
+// app.listen(3000);
+
+/*######middleware######## */
+// var express = require('express');
+// var app = express();
+// app.set('view engine','ejs');
+
+// app.get('/profile/:name', function(req,res){
+//     var data= ({age:29 ,surname:'sharma', hobbies :['working','eating','sleeping','repeat']});
+//     res.render('profile', {person: req.params.name , data : data });
+// });
+// app.listen(3000);
   
+/*###### middleware###### */
+//app.set('/assest', express.static('assets'));
  
 
 
