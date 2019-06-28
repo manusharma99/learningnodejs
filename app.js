@@ -163,26 +163,54 @@
 //  console.log('yo imma listening');
 
 /*#######basic routing######*/
-var fs = require('fs');
-var http = require('http');
+// var fs = require('fs');
+//  var http = require('http');
 
- var server = http.createServer(function(req,res){
-     console.log('request was made : ' +req.url);
-     if ( req.url === '/home' || req.url === '/' )
-     {
-        res.writeHead(200,{'content-Type':'text/html'});
-        fs.createReadStream(__dirname + '/index.html').pipe(res);
-     }
-     else{
-         res.writeHead(404,{'content-type':'text/plain'});
-         var obj = '404 page not found';
-         res.end(obj);
-     }
- });
+//  var server = http.createServer(function(req,res){
+//     console.log('request was made : ' +req.url);
+//      if ( req.url === '/home'  )
+//     {
+//         res.writeHead(200,{'content-Type':'text/html'});
+//        fs.createReadStream(__dirname + '/index.html').pipe(res);
+//    }
+//    else{
+//          res.writeHead(404,{'content-type':'text/plain'});
+//          var obj = '404 page not found';
+//          res.end(obj);
+//      }  });
 
- server.listen(3000,'127.0.0.1');
-  console.log('yo imma listening');
+//  server.listen(3000,'127.0.0.1');
+//   console.log('yo imma listening');
 
+/*####### express#######*/
+
+// var express = require('express');
+
+// var app = express();
+
+// app.get('/', function(req,res){
+//     res.send('this is the homepage');
+// });
+
+// app.get('/profile/:id', function(req,res){
+//     res.send('you requested profile with name of '+ req.params.id);
+// });
+// app.listen(3000);
+  
+ /*####### templating engine#######*/
+
+var express = require('express');
+var app = express();
+app.set('view engine','ejs');
+app.get('/', function(req,res){
+    res.sendfile(__dirname + '/index.html');
+});
+
+app.get('/profile/:name', function(req,res){
+    var data= ({age:29 ,surname:'sharma'});
+    res.render('profile', {person: req.params.name , data : data });
+});
+app.listen(3000);
   
  
 

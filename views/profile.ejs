@@ -1,0 +1,21 @@
+<!doctype=html>
+<html>
+<head>
+<style>
+body{background:lightblue ; color:white;font-family:sans-serif;}
+h1{font-size: 40px; color:white;}
+p{font-size: 35px;color:white;}
+</style>
+</head>
+<body>
+<h1>WELCOME to the profile of <%= person%></h1>
+<p>SURNAME : <%= data.surname%><br><b>AGE :</b> <%= data.age%></p>
+<h2>Hobbies</h2>
+<ul>
+    <% data.hobbies.forEach(function(item){ %>
+<li><%= item %></li>
+<% }); %>
+
+</ul>
+</body>
+</html>
